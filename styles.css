@@ -1065,9 +1065,17 @@ img { max-width: 100%; display: block; }
 }
 
 .gallery-slider {
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 0 40px;
     cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+}
+
+.gallery-slider::-webkit-scrollbar {
+    display: none;
 }
 
 .gallery-slider:active {
@@ -1086,6 +1094,7 @@ img { max-width: 100%; display: block; }
     min-width: 280px;
     flex-shrink: 0;
     transition: transform 0.4s ease;
+    scroll-snap-align: start;
 }
 
 .gallery-card:hover {

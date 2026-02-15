@@ -80,19 +80,22 @@ document.querySelectorAll('.mobile-link').forEach(link => {
 const heroImage = document.querySelector('.hero-image-wrapper');
 const heroContent = document.querySelector('.hero-content');
 
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const heroHeight = document.querySelector('.hero').offsetHeight;
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    // только пока hero видно
-    if (scrollY < heroHeight) {
-        const speed = scrollY * 0.3;
-        const speedSlow = scrollY * 0.12;
+if (!isTouchDevice) {
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const heroHeight = document.querySelector('.hero').offsetHeight;
 
-        heroImage.style.transform = `translateY(${speed}px)`;
-        heroContent.style.transform = `translateY(${speedSlow}px)`;
-    }
-});
+        if (scrollY < heroHeight) {
+            const speed = scrollY * 0.3;
+            const speedSlow = scrollY * 0.12;
+
+            heroImage.style.transform = `translateY(${speed}px)`;
+            heroContent.style.transform = `translateY(${speedSlow}px)`;
+        }
+    });
+}
 
 // ===== Scroll reveal =====
 const revealElements = document.querySelectorAll('.reveal');
