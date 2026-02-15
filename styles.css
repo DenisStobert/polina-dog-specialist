@@ -127,6 +127,13 @@ img { max-width: 100%; display: block; }
     padding-top: env(safe-area-inset-top, 20px);
 }
 
+@media (max-width: 768px) {
+    .navbar {
+        background: var(--clr-bg);
+        padding-top: env(safe-area-inset-top, 20px);
+    }
+}
+
 .navbar.scrolled {
     background: rgba(250, 247, 242, 0.92);
     backdrop-filter: blur(20px);
