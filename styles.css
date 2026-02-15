@@ -32,6 +32,7 @@ body {
     background: var(--clr-bg);
     line-height: 1.6;
     overflow-x: hidden;
+    padding-top: env(safe-area-inset-top);
 }
 
 body::after {
@@ -123,6 +124,7 @@ img { max-width: 100%; display: block; }
     z-index: 1000;
     padding: 20px 0;
     transition: all 0.4s ease;
+    padding-top: env(safe-area-inset-top, 20px);
 }
 
 .navbar.scrolled {
@@ -131,6 +133,7 @@ img { max-width: 100%; display: block; }
     -webkit-backdrop-filter: blur(20px);
     padding: 14px 0;
     box-shadow: 0 1px 0 var(--clr-border);
+    padding-top: env(safe-area-inset-top, 14px);
 }
 
 .navbar .container {
@@ -1070,8 +1073,8 @@ img { max-width: 100%; display: block; }
     padding: 0 40px;
     cursor: grab;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 .gallery-slider::-webkit-scrollbar {
@@ -1094,7 +1097,6 @@ img { max-width: 100%; display: block; }
     min-width: 280px;
     flex-shrink: 0;
     transition: transform 0.4s ease;
-    scroll-snap-align: start;
 }
 
 .gallery-card:hover {
